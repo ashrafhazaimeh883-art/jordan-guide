@@ -1,0 +1,150 @@
+tranaform{
+    transition: 0.4s ease
+}
+.t-translate:hover{
+transform: scale(1.05);
+}
+header{
+    background-color: #0d2f2f;;
+    color: aliceblue;
+}
+.name{
+    margin-left: auto;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-right:50px ;
+ }
+ .hero-section{
+ height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url(./ammanimages/شارع\ الرينبو.jpeg);
+    background-size:cover ;
+    background-position: center; 
+}
+    
+    .hero-section div{
+        padding-top: 170px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    animation: fadeInUp 2s ease  ;
+    }
+    .hero-section h1{
+        font-size: 70px;
+        padding-right: 40px;
+    }
+    @keyframes fadeInUp {
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+main{
+        background-color:seashell;
+    }
+.info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+
+}
+.firstElem{
+    border: 2px solid green;
+    padding: 10px;
+    border-radius: 10px;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow:2px 2px 7px red;
+    width: 280px;
+    /* height: 500px; */
+    color:#154b4b;
+    
+}
+.perag{
+    background-color: lightgray;
+    padding: 15px;
+}
+.firstInfo{
+    border: 2px solid green;
+    padding: 10px;
+    border-radius: 10px;  
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow:2px 2px 7px red;
+    width: 250px;
+    color:#154b4b;
+    
+}
+.videoBtn{
+    background-color: #0d2f2f;
+    border-radius: 3px;
+    color: aliceblue;
+    font-size: 20px;
+    transition: 0.07s;
+
+}
+.videoBtn:hover{
+    transform:scale(1.07);
+}
+
+.images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    padding: 10px;
+    transition: 0.4s;
+}
+.images :hover{
+transform: scale(1.05);
+cursor: zoom-in;
+}
+    
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Cairo','Tajawal',sans-serif;
+    font-size: 20px;
+    background-color:#0d2f2f;
+    color: #EFE3C8;
+    transition: 0 0 0.4;
+    text-align: center;
+    padding: 20px;
+}
+footer img{
+    margin: 10px;
+}
+footer img:hover{
+    animation: fadeIn 1s ease infinite alternate;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+footer img:hover{
+    transform: scale(1.5);
+}
+
+/* ====== Responsive breakpoints ====== */
+@media screen and (max-width: 768px) {
+    .governorates-grid-3{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .name{
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .governorates-grid-3{
+        grid-template-columns: 1fr;
+    }
+    .FirstElement span{
+        padding-left: 0;
+        font-size: 20px;
+    }
+    .governorates-grid-3 div{
+        font-size: 18px;
+    }
+}
