@@ -15,11 +15,12 @@ button.onclick=function(){
 
 
 
-let users = JSON.parse(localStorage.getItem("users")) || [];
+ let users = JSON.parse(localStorage.getItem("users")) || []
+let editIndex = -1
 
 function displayUsers() {
-  const tableBody = document.getElementById("tableBody");
-  tableBody.innerHTML = "";
+  const tableBody = document.getElementById("tableBody")
+  tableBody.innerHTML = ""
 
   users.forEach((user, idx) => {
     tableBody.innerHTML += `
@@ -29,45 +30,91 @@ function displayUsers() {
         <td>${user.TravelHistory}</td>
         <td>${user.Degree}</td>
         <td>
-          <button class="btn btn-warning btn-sm" onclick="editData(${idx})">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="deleteData(${idx})">Delete</button>
+          <button class="btn btn-warning btn-sm" onclick="editData(${idx})">
+            Edit
+          </button>
+
+          <button class="btn btn-danger btn-sm" onclick="deleteData(${idx})">
+            Delete
+          </button>
         </td>
       </tr>
-    `;
-  });
+    `
+  })
 }
-displayUsers();
+
+displayUsers() 
+
 
 function addUser() {
-  const name = document.getElementById("name").value.trim();
-  const TravelHistory = document.getElementById("TravelHistory").value;
-  const Degree = document.getElementById("Degree").value.trim();
+  const name = document.getElementById("name").value.trim()
+  const TravelHistory = document.getElementById("TravelHistory").value
+  const Degree = document.getElementById("Degree").value.trim()
 
   if (name === "" || TravelHistory === "" || Degree === "") {
-    alert("please add name, TravelHistory and Degree");
-    return;
+    alert("Please add name, TravelHistory and Degree")
+    return
   }
 
-  const user = { name, TravelHistory, Degree };
-  users.push(user);
-  saveUser();
-  displayUsers();
+  const user = {
+    name,
+    TravelHistory,
+    Degree
+  }
 
-  document.getElementById("name").value = "";
-  document.getElementById("TravelHistory").value = "";
-  document.getElementById("Degree").value = "";
+   if (editIndex !== -1) {
+    users[editIndex] = user
+    editIndex = -1
+
+    document.querySelector(".btn-success").textContent = "Add"
+  } 
+  
+   else {
+    users.push(user)
+  }
+
+  saveUser()
+  displayUsers()
+  clearInputs()
 }
+
+
+function editData(idx) {
+  const user = users[idx]
+
+  document.getElementById("name").value = user.name
+  document.getElementById("TravelHistory").value = user.TravelHistory
+  document.getElementById("Degree").value = user.Degree
+
+  editIndex = idx
+
+  document.querySelector(".btn-success").textContent = "Update"
+}
+
 
 function deleteData(idx) {
-  users.splice(idx, 1);
-  saveUser();
-  displayUsers();
+  users.splice(idx, 1)
+
+  saveUser()
+  displayUsers()
+
+   editIndex = -1
+  document.querySelector(".btn-success").textContent = "Add"
+
+  clearInputs()
 }
+
 
 function saveUser() {
-  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("users", JSON.stringify(users))
 }
 
+
+function clearInputs() {
+  document.getElementById("name").value = ""
+  document.getElementById("TravelHistory").value = ""
+  document.getElementById("Degree").value = ""
+}
 
 // const images=document.getElementById("images")
 // const button=document.getElementById("button")

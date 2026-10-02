@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+<body>
+    <div class="reviews-page">
+  <h2>صفحة آراء الزوار - المواقع الأثرية في الأردن</h2>
+
+  <div class="main-container">
+    <!-- 1. نموذج الإضافة والتعديل -->
+    <div class="form-card">
+      <h3>أضف رأيك الجديد</h3>
+      <form id="reviewForm">
+        <!-- معرف الرأي الجاري تعديله (مخفي) -->
+        <input type="hidden" id="editIndex" value="-1">
+
+        <label>الاسم الكامل:</label>
+        <input type="text" id="userName" placeholder="أدخل اسمك" required>
+
+        <label>الموقع الأثري:</label>
+        <select id="siteSelect" required>
+          <option value="">اختر موقعاً...</option>
+         <option value="عمان">عمان</option>
+                    <option value="إربد">إربد</option>
+                    <option value="المفرق">المفرق</option>
+                    <option value="عجلون">عجلون</option>
+                    <option value="جرش">جرش</option>
+                    <option value="مادبا">مادبا</option>
+                    <option value="البلقاء">البلقاء</option>
+                    <option value="الزرقاء">الزرقاء</option>
+                    <option value="الطفيلة">الطفيلة</option>
+                    <option value="معان">معان</option>
+                    <option value="الكرك">الكرك</option>
+                    <option value="العقبة">العقبة</option>
+        </select>
+
+        <label>رأيك وملاحظاتك:</label>
+        <textarea id="userReview" rows="4" placeholder="اكتب رأيك هنا..." required></textarea>
+
+        <label>التقييم (1-5):</label>
+        <select id="ratingSelect" required>
+          <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+          <option value="4">⭐⭐⭐⭐ (4/5)</option>
+          <option value="3">⭐⭐⭐ (3/5)</option>
+          <option value="2">⭐⭐ (2/5)</option>
+          <option value="1">⭐ (1/5)</option>
+        </select>
+
+        <button type="submit" id="submitBtn">إضافة رأي</button>
+      </form>
+    </div>
+
+    <!-- 2. عرض الآراء الحالية -->
+    <div class="reviews-display">
+      <h3>آراء الزوار الحالية</h3>
+      <div id="reviewsList"></div>
+    </div>
+  </div>
+</div>
+    
+</body>
+<script src="feedback.js"></script>
+</html>
